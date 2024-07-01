@@ -1,0 +1,15 @@
+{
+  "name": "pomodoro-timer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "compile": "sass --watch --no-source-map ./src/scss/main.scss ./src/css/style.css",
+    "compress": "sass --no-source-map --style=compressed ./src/scss/main.scss ./src/css/style.css"
+  },
+  "author": "Emrah Isovic",
+  "license": "ISC",
+  "dependencies": {
+    "sass": "^1.77.6"
+  }
+}
