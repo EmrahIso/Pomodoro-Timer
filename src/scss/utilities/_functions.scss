@@ -1,0 +1,6 @@
+// We use this function to calculate the rem unit based on parameter (value in px). This will remove unnecessary need for math.
+
+@function toRem($px-value) {
+    $rem-value: calc($px-value / 16) + rem;
+    @return $rem-value;
+}
