@@ -1,0 +1,39 @@
+*, 
+*::before, 
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+  
+body {
+    line-height: 1.5; /* You shouldn't use this line-height on headings */
+    -webkit-font-smoothing: antialiased;
+}
+  
+img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+}
+  
+input, button, textarea, select, label {
+    font: inherit;
+    font-size: max(16px, 1rem);
+    /* !Never set font-size less than 16px on these elements because of mobile zooming */
+}
+  
+button,
+label,
+input,
+select,
+progress,
+meter {
+    display: block;
+    width: 100%;
+    padding: 5px;
+    height: 30px;
+}
+  
+p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+}
