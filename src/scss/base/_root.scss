@@ -1,0 +1,55 @@
+@use "../utilities" as *;
+@use "../utilities/variables" as *;
+@use "../utilities/colors" as *;
+@use "../utilities/type-scale" as *;
+
+:root {
+    // Dark - Light mode
+    --theme-mode: light;
+
+    &.dark-theme {
+        --theme-mode: dark;
+    }
+
+    // Fonts
+    @each $font, $name in $fonts {
+        --font-#{$font}: #{$name};
+    }
+
+    // Colors
+    @each $color, $shades  in $colors {
+        @each $shade, $value in $shades {
+            --clr-#{$color}-#{$shade}: #{$value};
+        }
+        @if $color == "primary-light" {
+            @each $shade, $value in $shades {
+                --clr-primary-#{$shade}: #{$value};
+            }
+        }
+    }
+
+    &.dark-theme {
+        @each $color, $shades  in $colors {
+            @if $color == "primary-dark" {
+                @each $shade, $value in $shades {
+                    --clr-primary-#{$shade}: #{$value};
+                }
+            }
+        }
+    }
+
+    // Type-scale
+    @each $screen-size, $font-size in $type-scale {
+        @if $screen-size != medium {
+            @each $size, $value in $font-size {
+                --fs-#{$size}: #{$value};
+            }
+        } @else {
+            @include respond-to(medium) {
+                @each $size, $value in $font-size {
+                    --fs-#{$size}: #{$value};
+                }
+            }
+        }
+    }
+}
