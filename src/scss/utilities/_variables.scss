@@ -5,3 +5,11 @@ $fonts: (
     medium: 'ubuntumedium',
     bold: 'ubuntubold'
 );
+
+// shadows
+$shadows: (
+    dark-bottom: 0 2rem 6rem rgba(0, 0, 0, 0.3),
+    light-bottom: 0 2rem 5rem rgba(0, 0, 0, 0.06),
+    dark-top: 2rem 0 6rem rgba(0, 0, 0, 0.3),
+    light-top: 2rem 0 5rem rgba(0, 0, 0, 0.06)
+);
