@@ -1,0 +1,70 @@
+@use "../utilities/" as *;
+
+.session {
+    margin-top: toRem(16);
+    grid-column: 1 / -1;
+    justify-self: center;
+    position: relative;
+    padding: toRem(16) toRem(48);
+    overflow: hidden;
+
+    font-size: var(--fs-400);
+    text-transform: capitalize;
+    border-radius: 150rem;
+
+    background-color: var(--clr-primary-400);
+
+    & > div {
+        display: inline-block;
+        text-align: center;
+        transition: all .5s;
+
+        & > span {
+            color: var(--clr-primary-400);
+        }
+    }
+
+    &__work-message {
+        position: relative;
+        z-index: 9;
+    }
+
+    &__break-message {
+        position: absolute;
+        top: 0%;
+        left: 50%;
+        transform: translate(-50%, -100%);
+        text-wrap: nowrap;
+        opacity: 0;
+        z-index: 9;
+    }
+
+    &.break &__work-message {
+        bottom: 0;
+        transform: translateY(calc(100% + toRem(4)));
+        text-wrap: nowrap;
+        opacity: 0;
+    }
+
+    &.break &__break-message {
+        top: 50%;
+        transform: translate(-50%, -50%);
+        opacity: 1;
+        z-index: 9;
+    }
+
+    &::after {
+        content: '';
+        
+        position: absolute;
+        height: calc(100% - toRem(12));
+        width: calc(100% - toRem(12));
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 1;
+
+        border-radius: 150rem;
+        background-color: var(--clr-primary-100);
+    }
+}
