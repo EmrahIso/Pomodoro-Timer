@@ -14,6 +14,10 @@
 
     background-color: var(--clr-primary-400);
 
+    @include respond-to(small) {
+        font-size: var(--fs-300);
+    }
+
     & > div {
         display: inline-block;
         text-align: center;

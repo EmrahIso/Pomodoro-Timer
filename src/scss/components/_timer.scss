@@ -1,0 +1,69 @@
+@use "../utilities" as *;
+
+.timer {
+    font-size: var(--fs-900);
+    font-family: var(--font-bold);
+
+    color: var(--clr-neutral-100);
+
+    position: relative;
+    display: flex;
+    justify-content: center;
+    gap: toRem(12);
+
+    @include respond-to(extra-small) {
+        font-size: var(--fs-800);
+    }
+
+    & span {
+        display: inline-block;
+
+        &[data] {
+            margin-top: toRem(8);
+        }
+    }
+
+    &__control {
+        display: flex;
+        flex-wrap: wrap;
+        row-gap: toRem(64);
+
+        @include respond-to(small) {
+            row-gap: toRem(32);
+            column-gap: toRem(32);
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @include respond-to(extra-small) {
+            row-gap: toRem(24);
+            column-gap: toRem(8);
+        }
+
+        & > * {
+            flex: 1 1 50%;
+            display: flex;
+            justify-content: center;
+
+            &:nth-child(2) {
+                @include respond-to(small) {
+                    justify-content: flex-end;
+                }
+            }
+
+            &:nth-child(3) {
+                @include respond-to(small) {
+                    justify-content: flex-start;
+                }
+            }
+
+            &:first-child {
+                flex-basis: 100%;
+
+                @include respond-to(small) {
+                    grid-column: 1 / -1;
+                }
+            }
+        }
+    }
+}

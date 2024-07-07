@@ -1,0 +1,163 @@
+@use "../utilities" as *;
+
+.lightbox {
+    position: absolute;
+    top: 10vh;
+    left: 50%;
+    transform: translateX(-50%) scale(0.5);
+    min-width: toRem(420);
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+    transition: all .1s ease-in-out;
+
+    background-color: white;
+    border-radius: toRem(24);
+    box-shadow: var(--shw-light-bottom);
+
+    @include respond-to(small) {
+        width: calc(100% - 48px);
+        min-width: auto;
+    }
+
+    &.lightbox--visible {
+        z-index: 99;
+        opacity: 1;
+        pointer-events: all;
+        visibility: visible;
+        transform: translateX(-50%) scale(1);
+    }
+
+    & > * {
+        padding: toRem(24) toRem(36);
+    }
+
+    &__heading {
+        font-size: var(--fs-500);
+        font-family: var(--font-bold);
+        line-height: 1.1;
+        letter-spacing: -0.5px;
+
+        color: var(--clr-neutral-600);
+    }
+
+    &__label {
+        font-family: var(--font-bold);
+        letter-spacing: -0.5px;
+        
+        color: var(--clr-neutral-600);
+        
+        height: auto;
+        padding: 0 0 2px 2px;
+
+        &--sound {
+            @include respond-to(small) {
+                padding: 0;
+            }
+        }
+    }
+
+    &__number-input {
+        font-size: max(16px, var(--fs-300));
+        
+        display: inline-block;
+        height: auto;
+        padding: toRem(12) toRem(16);
+
+        border: none;
+        border-radius: toRem(8);
+        background-color:  var(--clr-neutral-300);
+        color: var(--clr-neutral-600);
+
+        &:focus {
+            outline: none;
+        }
+
+        &:invalid {
+            border: 1px solid red;
+        }
+    }
+
+    & > div {
+        padding: toRem(30) toRem(36) toRem(20) toRem(36);
+        border-bottom: 1px solid var(--clr-neutral-300);
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        @include respond-to(small) {
+            padding: toRem(20) toRem(26) toRem(16) toRem(26);
+        }
+    }
+
+    & section {
+
+        & > div {
+            display: flex;
+            gap: toRem(36);
+
+            @include respond-to(small) {
+                flex-direction: column;
+            }
+
+            & > div {
+                flex-basis: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            &.lightbox__sound-switch-cont > div {
+                align-items: flex-end;
+                position: relative;
+            }
+
+            &.lightbox__sound-switch-cont {
+                @include respond-to(small) {
+                    flex-direction: row;
+                }
+            }
+        }
+    }
+
+    &__options {
+        padding: toRem(30) toRem(36);
+
+        @include respond-to(small) {
+            padding: toRem(20) toRem(26);
+        }
+    }
+
+    &__time-section,
+    &__sound-section {
+        padding-bottom: toRem(30);
+        border-bottom: 1px solid var(--clr-neutral-300);
+
+        @include respond-to(small) {
+            padding-bottom: toRem(20);
+        }
+    }
+    
+    &__time-section,
+    &__button-section {
+        margin-top: toRem(30);
+
+        @include respond-to(small) {
+            margin-top: toRem(20);
+        }
+    }
+
+    &__button-section {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    &__icon-cont {
+        margin-bottom: toRem(10);
+
+        & svg {
+            fill: var(--clr-primary-500);
+        }
+    }
+}

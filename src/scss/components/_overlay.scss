@@ -1,0 +1,23 @@
+@use "../utilities" as *;
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    width: 100dvw;
+    height: 100vh;
+    height: 100dvh;
+
+    z-index: 19;
+
+    opacity: 0;
+    visibility: hidden;
+
+    background-color: var(--clr-neutral-705);
+}
+
+.lightbox--visible + .overlay {
+    opacity: 1;
+    visibility: visible;
+}

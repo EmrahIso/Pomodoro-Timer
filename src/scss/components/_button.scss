@@ -1,0 +1,238 @@
+@use "../utilities" as *;
+
+.button {
+    cursor: pointer;
+    border: none;
+    background-color: var(--clr-primary-400);
+    color: var(--clr-neutral-200);
+    font-size: max(16px, var(--fs-400));
+    height: auto;
+    width: auto;
+    padding: toRem(8) toRem(24);
+    border-radius: toRem(12);
+
+    &--settings {
+        height: 96px;
+        width: 96px;
+        position: relative;
+
+
+        background-color: transparent;
+        border: none;
+
+        @include respond-to(small) {
+            padding: 0;
+            width: 42px;
+        }
+
+        @include respond-to(extra-small) {
+            height: 42px;
+        }
+
+        &-icon {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            fill: var(--clr-primary-400);
+            transition: transform .5s;
+            transform-origin: center;
+
+            &--big {
+                transform: translateY(-50%) rotate(0deg);
+
+                @include respond-to(small) {
+                    display: none;
+                }
+            }
+
+            &--small {
+                left: 52px;
+                transform: translateY(-50%) rotate(30deg);
+
+                @include respond-to(small) {
+                    left: 0;
+                }
+            }
+        }
+
+        &:hover,
+        &:active {
+            .button--settings-icon {
+                &--big {
+                    transform: translateY(-50%) rotate(-60deg);
+                }
+
+                &--small {
+                    transform: translateY(-50%) rotate(90deg);
+                }
+            }
+        }
+    }
+
+    &--switch {
+        display: inline-block;
+        height: toRem(64);
+        width: toRem(64);
+        position: relative;
+        cursor: pointer;
+        
+        border-radius: 50%;
+        outline: 5px solid transparent;
+        
+        appearance: none;
+        transition: outline .15s;
+
+        &::before,
+        &::after {
+            content: '';
+            height: 40px;
+            width: 40px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            transition: all .15s;
+        }
+
+        &-play {
+            &::before {
+                background-image: url('../../assets/images/pause_icon.svg');
+                opacity: 1;
+                visibility: visible;
+            }
+
+            &::after {
+                background-image: url('../../assets/images/resume_icon.svg');
+                opacity: 0;
+                visibility: hidden;
+            }
+        }
+
+        &-pause {
+            &::after {
+                background-image: url('../../assets/images/resume_icon.svg');
+                opacity: 1;
+                visibility: visible;
+            }
+
+            &::before {
+                opacity: 0;
+                visibility: hidden;
+            }
+        }
+
+        &:hover {
+            outline: 5px solid var(--clr-primary-300);
+        }
+    }
+
+    &--reset,
+    &--start {
+        height: auto;
+        width: auto;
+        padding: toRem(8) toRem(24);
+        border-radius: toRem(12);
+        transition: outline .15s;
+        outline: 5px solid transparent;
+
+        &:hover {
+            outline: 5px solid var(--clr-primary-300);
+        }
+
+        &:active {
+            transform: translateY(-2px);
+        }
+    }
+
+    &--close {
+        background-color: transparent;
+        width: 40px;
+        height: 40px;
+        padding: 0;
+        overflow: hidden;
+        transition: all .4s ease-in-out 0s;
+        position: relative;
+
+        &:hover,
+        &:focus,
+        &:active {
+            background-color: var(--clr-primary-400);
+        }
+
+        &::after,
+        &::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-45deg);
+            height: 25px;
+            width: 1.5px;
+            background-color: var(--clr-neutral-600);
+            transition: all .4s ease-in-out 0s;
+        }
+
+        &:hover::before,
+        &:focus::before,
+        &:active::before {
+            transform: translate(60px, 45px) rotate(-45deg);
+        }
+
+        &::after {
+            transform: translate(-30px, -40px) rotate(-45deg);
+        }
+
+        &:hover::after,
+        &:focus::after,
+        &:active::after {
+            transform: translate(-50%, -50%) rotate(-45deg);
+            background-color: var(--clr-neutral-200);
+        }
+
+
+        &-arrow {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(45deg);
+            height: 25px;
+            width: 1.5px;
+            background-color: var(--clr-neutral-600);
+            transition: all .4s ease-in-out 0s;
+
+            &::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                height: 25px;
+                width: 1.5px;
+                transform: translate(0, -50px);
+                background-color: var(--clr-neutral-600);
+                transition: all .4s ease-in-out 0s;
+            }
+        }
+        
+
+        &:hover &-arrow,
+        &:focus &-arrow,
+        &:active &-arrow {
+            transform: translate(-60px, 45px) rotate(45deg); 
+        }
+
+        &:hover &-arrow::after,
+        &:focus &-arrow::after,
+        &:active &-arrow::after {
+            transform: translate(2px, -83px);
+            background-color: var(--clr-neutral-200);
+        }
+    }
+
+    &__apply-button {
+        transition: background-color .5s;
+
+        &:disabled {
+            background-color: red;
+        }
+    }
+}
