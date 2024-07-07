@@ -1,0 +1,69 @@
+@use "../utilities" as *;
+
+.main {
+    margin: 0 auto;
+    padding: toRem(48);
+    max-width: toRem(1200);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+    row-gap: toRem(48);
+
+    @include respond-to(extra-large) {
+        padding: toRem(36) toRem(48);
+        row-gap: toRem(32);
+    }
+
+    @include respond-to(small) {
+        padding: toRem(24);
+        grid-template-columns: 1fr 2fr 1.35fr; // This was changed because theme section is much wider than settings section.
+    }
+
+    @include respond-to(extra-small) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .section-timer,
+    .progress-steps {
+        grid-column: 1 / -1;
+    }
+
+    .section-timer {
+        margin: 0 auto;
+        padding: toRem(48) toRem(96);
+        
+        align-self: center;
+        display: flex;
+        flex-direction: column;
+        gap: toRem(48);
+
+        border-radius: toRem(32);
+        background-color: var(--clr-primary-200);
+        box-shadow: var(--shw-light-bottom);
+
+        @include respond-to(extra-large) {
+            padding: toRem(32) toRem(64);
+            row-gap: toRem(32);
+        }
+
+        @include respond-to(small) {
+            width: calc(100% - 48px);
+            padding: toRem(24);
+        }
+
+        @include respond-to(extra-small) {
+            width: calc(100%);
+            padding: toRem(16);
+        }
+    }
+
+    .section-settings {
+        @include respond-to(small) {
+            justify-self: center;
+        }
+        @include respond-to(extra-small) {
+            grid-columns: 1 / 2;
+            grid-row: 1 / 2;
+        }
+    }
+}
