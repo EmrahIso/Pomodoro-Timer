@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./src/css/style.css">
+    <title>Pomodoro Timer</title>
+</head>
+<body>
+    <main class="main">
+        <section class="section-settings">
+            <button type="button" class="button button--settings">
+                <svg xmlns="http://www.w3.org/2000/svg" height="54px" viewBox="0 -960 960 960" width="54px" class="button--settings-icon button--settings-icon--big"><path d="m370-80-16-128q-13-5-24.5-12T307-235l-119 50L78-375l103-78q-1-7-1-13.5v-27q0-6.5 1-13.5L78-585l110-190 119 50q11-8 23-15t24-12l16-128h220l16 128q13 5 24.5 12t22.5 15l119-50 110 190-103 78q1 7 1 13.5v27q0 6.5-2 13.5l103 78-110 190-118-50q-11 8-23 15t-24 12L590-80H370Zm70-80h79l14-106q31-8 57.5-23.5T639-327l99 41 39-68-86-65q5-14 7-29.5t2-31.5q0-16-2-31.5t-7-29.5l86-65-39-68-99 42q-22-23-48.5-38.5T533-694l-13-106h-79l-14 106q-31 8-57.5 23.5T321-633l-99-41-39 68 86 64q-5 15-7 30t-2 32q0 16 2 31t7 30l-86 65 39 68 99-42q22 23 48.5 38.5T427-266l13 106Zm42-180q58 0 99-41t41-99q0-58-41-99t-99-41q-59 0-99.5 41T342-480q0 58 40.5 99t99.5 41Zm-2-140Z"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" height="42px" viewBox="0 -960 960 960" width="42px" class="button--settings-icon button--settings-icon--small"><path d="m370-80-16-128q-13-5-24.5-12T307-235l-119 50L78-375l103-78q-1-7-1-13.5v-27q0-6.5 1-13.5L78-585l110-190 119 50q11-8 23-15t24-12l16-128h220l16 128q13 5 24.5 12t22.5 15l119-50 110 190-103 78q1 7 1 13.5v27q0 6.5-2 13.5l103 78-110 190-118-50q-11 8-23 15t-24 12L590-80H370Zm70-80h79l14-106q31-8 57.5-23.5T639-327l99 41 39-68-86-65q5-14 7-29.5t2-31.5q0-16-2-31.5t-7-29.5l86-65-39-68-99 42q-22-23-48.5-38.5T533-694l-13-106h-79l-14 106q-31 8-57.5 23.5T321-633l-99-41-39 68 86 64q-5 15-7 30t-2 32q0 16 2 31t7 30l-86 65 39 68 99-42q22 23 48.5 38.5T427-266l13 106Zm42-180q58 0 99-41t41-99q0-58-41-99t-99-41q-59 0-99.5 41T342-480q0 58 40.5 99t99.5 41Zm-2-140Z"/></svg>
+            </button>
+        </section>
+        <section class="lightbox">
+            <div>
+                <h2 class="lightbox__heading">Settings</h2>
+                <button type="button" class="button button--close">
+                    <span class="button--close-arrow"></span>
+                </button>
+            </div>
+            <form action="#" class="lightbox__options"> <!--This is not the real form. This form is only used for some UI JavaScript settings.-->
+                <section class="lightbox__sound-section">
+                    <div class="lightbox__icon-cont"><svg xmlns="http://www.w3.org/2000/svg" height="26px" viewBox="0 -960 960 960" width="26px"><path d="M200-360v-240h160l200-200v640L360-360H200Zm440 40v-322q45 21 72.5 65t27.5 97q0 53-27.5 96T640-320ZM480-606l-86 86H280v80h114l86 86v-252ZM380-480Z"/></svg></div>
+                    <div class="lightbox__sound-switch-cont">
+                        <label class="lightbox__label lightbox__label--sound">Sound</label>
+                        <div>
+                            <input type="checkbox" name="sound" class="checkbox checkbox--sound" id="sound-checkbox" checked>
+                            <label for="sound-checkbox"></label>
+                        </div>
+                    </div>
+                    <div></div>
+                </section>
+                <section class="lightbox__time-section">
+                    <div class="lightbox__icon-cont"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"><path d="M360-840v-80h240v80H360Zm80 440h80v-240h-80v240Zm40 320q-74 0-139.5-28.5T226-186q-49-49-77.5-114.5T120-440q0-74 28.5-139.5T226-694q49-49 114.5-77.5T480-800q62 0 119 20t107 58l56-56 56 56-56 56q38 50 58 107t20 119q0 74-28.5 139.5T734-186q-49 49-114.5 77.5T480-80Zm0-80q116 0 198-82t82-198q0-116-82-198t-198-82q-116 0-198 82t-82 198q0 116 82 198t198 82Zm0-280Z"/></svg></div>
+                    <div>
+                        <div>
+                            <label for="work-time" class="lightbox__label">Work</label>
+                            <input type="number" name="work-time" id="work-time" min="15" max="50" class="lightbox__number-input" value="25">
+                        </div>
+                        <div>
+                            <label for="short-break" class="lightbox__label">Short Break</label>
+                            <input type="number" name="short-break" id="short-break" min="2" max="10" class="lightbox__number-input" value="5">
+                        </div>
+                        <div>
+                            <label for="long-break" class="lightbox__label">Long Break</label>
+                            <input type="number" name="long-break" id="long-break" min="5" max="25" class="lightbox__number-input" 
+                            value="15">
+                        </div>
+                    </div>
+                </section>
+                <section class="lightbox__button-section">
+                    <button type="button" class="button button__apply-button">
+                        Apply
+                    </button>
+                </section>
+            </form>
+        </section>
+        <div class="overlay"></div>
+        <h1 class="main-heading">pomodoro</h1>
+        <section class="theme">
+            <input type="checkbox" id="theme-checkbox" class="checkbox checkbox--theme" name="checkbox">
+            <label for="theme-checkbox"></label>
+            <svg xmlns="http://www.w3.org/2000/svg" class="theme__icon" viewBox="0 -960 960 960"><path d="M484-80q-84 0-157.5-32t-128-86.5Q144-253 112-326.5T80-484q0-146 93-257.5T410-880q-18 99 11 193.5T521-521q71 71 165.5 100T880-410q-26 144-138 237T484-80Zm0-80q88 0 163-44t118-121q-86-8-163-43.5T464-465q-61-61-97-138t-43-163q-77 43-120.5 118.5T160-484q0 135 94.5 229.5T484-160Zm-20-305Z"/></svg>
+        </section>
+        <article class="section-timer">
+            <div class="timer">
+                <span data="25">25</span> <span>:</span> <span data="00">00</span>
+            </div>
+            <div class="timer__control">
+                <div>
+                    <button class="button--switch button button--switch-pause" data-pause></button>
+                </div>
+                <div>
+                    <button type="button" class="button--start button">Start</button>
+                </div>
+                <div>
+                    <button type="button" class="button--reset button">Reset</button>
+                </div>
+            </div>
+        </article>
+        <section class="session break">
+            <div class="session__work-message"><span>Working session</span></div>
+            <div class="session__break-message"><span>Break session</span></div>
+        </section>
+    </main>
+    <script src="src/script.js"></script>
+</body>
+</html> 
