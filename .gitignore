@@ -9,3 +9,7 @@ temp/
 # ignore node modules
 
 node_modules
+
+# ignore all VScode files
+
+.vscode
