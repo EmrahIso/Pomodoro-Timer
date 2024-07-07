@@ -3,6 +3,8 @@
 @use "../utilities/colors" as *;
 @use "../utilities/type-scale" as *;
 
+
+
 :root {
     // Dark - Light mode
     --theme-mode: light;
@@ -18,25 +20,44 @@
 
     // Colors
     @each $color, $shades  in $colors {
-        @each $shade, $value in $shades {
-            --clr-#{$color}-#{$shade}: #{$value};
-        }
-        @if $color == "primary-light" {
+        @if $color == "color-blue" {
             @each $shade, $value in $shades {
                 --clr-primary-#{$shade}: #{$value};
             }
         }
-    }
 
-    &.dark-theme {
-        @each $color, $shades  in $colors {
-            @if $color == "primary-dark" {
+        &.dark-theme {
+            @if $color == "color-rose" {
                 @each $shade, $value in $shades {
                     --clr-primary-#{$shade}: #{$value};
                 }
             }
         }
+
+        &.current-timer-mode-break {
+            @if $color == "color-green" {
+                @each $shade, $value in $shades {
+                    --clr-primary-#{$shade}: #{$value};
+                }
+            }
+        }
+
+        &.dark-theme.current-timer-mode-break {
+            @if $color == "color-purple" {
+                @each $shade, $value in $shades {
+                    --clr-primary-#{$shade}: #{$value};
+                }
+            }
+        }
+
+        @if $color == "neutral" {
+            @each $shade, $value in $shades {
+                --clr-neutral-#{$shade}: #{$value};
+            }
+        }
     }
+
+   
 
     // Type-scale
     @each $screen-size, $font-size in $type-scale {
@@ -51,5 +72,11 @@
                 }
             }
         }
+    }
+
+    // Shadows
+
+    @each $name, $value in $shadows {
+        --shw-#{$name}: #{$value};
     }
 }
