@@ -1,0 +1,10 @@
+Plan 
+
+ 1. Korisnik moze setati tajmer na 25minuta odnosno jedna radna sesija.
+ 2. Nakon 25minuta pokrece se rest koji traje 5 minuta.
+ 3. Korisnik moze zapoceti, pauzirati, zaustaviti tajmer i resetati ga.
+ 4. Korisnik moze cuti zvuk na 00:00 koji oznacava kraj sesije.
+ 5. Korisnik moze customizovat vrijeme (i worktime i resttime) prije pocetka.
+ 6. Korisnik moze aktivirati long break sesiju koja ce trajati duze i aktivirati ce se nakon 4 obicne rest sesije.
+ 7. Korisnik moze birati da li zeli koristiti aplikaciju u dark ili u light modu.
+ 
