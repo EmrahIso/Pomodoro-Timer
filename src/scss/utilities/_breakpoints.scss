@@ -1,6 +1,7 @@
 // This code helps us to run media queries based on defined query breakpoints.
 
 $breakpoints: (
+    "extra-small": (max-width: 24em),   // 384px 
     "small": (max-width: 36em),         // 576px
     "medium": (max-width: 48em),        // 768px
     "large": (max-width: 62em),         // 992px
