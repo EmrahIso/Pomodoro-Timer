@@ -7,3 +7,8 @@ html {
 body {
     background-color: var(--clr-primary-300);
 }
+
+.container {
+    max-width: toRem(1200);
+    margin: 0 auto;
+}

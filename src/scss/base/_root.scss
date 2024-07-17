@@ -27,7 +27,7 @@
         }
 
         &.dark-theme {
-            @if $color == "color-rose" {
+            @if $color == "color-blue-dark" {
                 @each $shade, $value in $shades {
                     --clr-primary-#{$shade}: #{$value};
                 }
@@ -35,7 +35,7 @@
         }
 
         &.current-timer-mode-break {
-            @if $color == "color-green" {
+            @if $color == "color-rose" {
                 @each $shade, $value in $shades {
                     --clr-primary-#{$shade}: #{$value};
                 }
@@ -43,7 +43,7 @@
         }
 
         &.dark-theme.current-timer-mode-break {
-            @if $color == "color-purple" {
+            @if $color == "color-rose-dark" {
                 @each $shade, $value in $shades {
                     --clr-primary-#{$shade}: #{$value};
                 }
