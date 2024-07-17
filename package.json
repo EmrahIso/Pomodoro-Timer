@@ -1,11 +1,12 @@
 {
   "name": "pomodoro-timer",
   "version": "1.0.0",
-  "description": "",
+  "description": "The Pomodoro Technique is a time management method developed by Francesco Cirillo in the late 1980s. The technique uses a timer to break down work into intervals, traditionally 25 minutes in length, separated by short breaks - 5 minutes.",
   "main": "index.js",
   "scripts": {
-    "compile": "sass --watch --no-source-map ./src/scss/main.scss ./src/css/style.css",
-    "compress": "sass --no-source-map --style=compressed ./src/scss/main.scss ./src/css/style.css"
+    "compile": "sass --watch --no-source-map ./src/scss/main.scss ./src/css/main.css",
+    "compress": "sass --no-source-map --style=compressed ./src/css/main.css ./src/css/main.min.css",
+    "uglify": "uglifyjs src/*.js -m -o src/app.js && uglifyjs src/*.js -m -c -o src/app.min.js"
   },
   "author": "Emrah Isovic",
   "license": "ISC",
