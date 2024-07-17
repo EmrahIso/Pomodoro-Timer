@@ -1,11 +1,11 @@
 // This code helps us to run media queries based on defined query breakpoints.
 
 $breakpoints: (
-    "extra-small": (max-width: 24em),   // 384px 
-    "small": (max-width: 36em),         // 576px
-    "medium": (max-width: 48em),        // 768px
-    "large": (max-width: 62em),         // 992px
-    "extra-large": (max-width: 75em)    // 1200px
+    "extra-small": (max-width: 384px),   
+    "small": (max-width: 576px),         
+    "medium": (max-width: 768px),        
+    "large": (max-width: 992px),         
+    "extra-large": (max-width: 1200px)    
 );
 
 @mixin respond-to($breakpoint) {
