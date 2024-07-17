@@ -1,0 +1,110 @@
+@use "../utilities/" as *;
+
+.notification {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    z-index: 12;
+    display: flex;
+    flex-direction: column;
+    gap: toRem(6);
+
+    overflow: hidden;
+    transform: translate(-50%, -100%);
+    
+    width: toRem(400);
+
+    border-radius: toRem(16);
+    background-color: var(--clr-neutral-100);
+    transition: transform .2s;
+    box-shadow: var(--shw-mini-light-bottom);
+
+    padding: toRem(18) toRem(18) toRem(8) toRem(18);
+
+    @include respond-to(small) {
+        width: toRem(320);
+    }
+
+    @include respond-to(extra-small) {
+        width: min(toRem(300), 80vw);
+        width: min(toRem(300), 80dvw);
+    }
+
+    &-active {
+        transform: translate(-50%, max(15px, 5vh));
+        transform: translate(-50%, max(15px, 5dvh));
+        @include respond-to(small) {
+            transform: translate(-50%, 25px);
+            transform: translate(-50%, 25px);
+        }
+    }
+
+    &__heading {
+        color: var(--clr-neutral-600);
+        font-family: var(--font-regular);
+        font-size: var(--fs-300);
+        letter-spacing: 0.5px;
+        line-height: 1.2;
+    }
+
+    &__description {
+        color: var(--clr-neutral-500);
+        line-height: 1.4;
+        font-family: var(--font-regular);
+    }
+
+    & div:first-child {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: toRem(2);
+    }
+
+    & div:nth-child(2) {
+        margin-bottom: toRem(12);
+        @include respond-to(small) {
+            margin-bottom: toRem(9);
+        }
+    }
+
+    & div:nth-child(3) {
+        margin-bottom: toRem(6);
+        @include respond-to(small) {
+            margin-bottom: toRem(4);
+        }
+    }
+
+    &__timeline {
+        position: absolute;
+        bottom: 0;
+        z-index: 9;
+        height: 9px;
+        width: 0%;
+        display: inline-block;
+
+        border-radius: toRem(24);
+        background-color: var(--clr-primary-300);
+
+        @include respond-to(small) {
+            height: 6px;
+        }
+
+        &-background {
+            position: relative;        
+    
+            display: inline-block;
+            height: 9px;
+            width: 100%;
+            
+            border-radius: toRem(24);
+            background-color: var(--clr-neutral-400);
+    
+            @include respond-to(small) {
+                height: 6px;
+            }
+        }
+    }
+    
+
+    
+}
