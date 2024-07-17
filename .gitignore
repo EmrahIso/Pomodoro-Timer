@@ -13,3 +13,17 @@ node_modules
 # ignore all VScode files
 
 .vscode
+
+# ignore any Css file that is generated as a result of Scss code in css folder 
+
+src/css/
+
+*.css
+
+# ignore all minified files in the project 
+
+*.min.*
+
+# ignore all app js files
+
+app.js
