@@ -1,0 +1,35 @@
+@use "../utilities" as *;
+
+.footer {
+    margin: toRem(24) auto;
+    margin-top: auto;
+    display: flex;
+    justify-content: center;
+
+    @include respond-to(small) {
+        margin-top: toRem(48);
+    }
+
+    .copyright {
+        display: flex;
+        gap: toRem(8);
+        font-size: var(--fs-400);
+        font-weight: bold;
+        color: var(--clr-neutral-100);
+
+        &__link {
+            color: currentColor;
+            display: flex;
+            align-items: center;
+            gap: toRem(8);
+            text-decoration: none;
+            font-family: var(--font-bold);
+        }
+
+        &__github-icon {
+            fill: var(--clr-neutral-200);
+            fill: red;
+            display: inline-block;
+        }
+    }
+}

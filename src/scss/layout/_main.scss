@@ -1,9 +1,7 @@
 @use "../utilities" as *;
 
 .main {
-    margin: 0 auto;
     padding: toRem(48);
-    max-width: toRem(1200);
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     align-items: center;
@@ -47,7 +45,6 @@
         }
 
         @include respond-to(small) {
-            width: calc(100% - 48px);
             padding: toRem(24);
         }
 
